@@ -29,11 +29,13 @@ public class SessionData implements Serializable {
     @ApiModelProperty("用户id")
     private Long id;
     @ApiModelProperty("注册时间")
-    private String create_time;
-    @ApiModelProperty("昵称")
-    private String nickname;
-    @ApiModelProperty("性别")
-    private Integer gender;
+    private String createTime;
+    @ApiModelProperty("用户名")
+    private String username;
+    @ApiModelProperty("联系方式")
+    private String telephone;
+    @ApiModelProperty("电子邮箱")
+    private String email;
     @ApiModelProperty("头像")
     private String portrait;
 
@@ -41,7 +43,7 @@ public class SessionData implements Serializable {
         AssertUtil.notNull(user, CommonErrorCode.USER_NOT_EXIST);
 //        if(user == null){
 //            create_time = TimeUtil.getCurrentTimestamp();
-//            nickname = "小镇用户";
+//            nickname = "易启康用户";
 //            gender = 0;
 //            campus = CampusEnum.ZHONG_BEI.getName();
 //            signature = "ta很懒，还没有签名哦~";
@@ -49,10 +51,11 @@ public class SessionData implements Serializable {
 //            return;
 //        }
 
-//        id = user.getId();
-//        create_time = user.getCreate_time();
-//        nickname = user.getNickname();
-//        gender = user.getGender();
-//        portrait = user.getPortrait();
+        id = user.getId();
+        createTime = user.getCreateTime();
+        username = user.getUsername();
+        portrait = user.getPortrait();
+        telephone = user.getTelephone();
+        email = user.getEmail();
     }
 }
