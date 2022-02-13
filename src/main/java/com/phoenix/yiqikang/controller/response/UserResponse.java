@@ -1,7 +1,17 @@
 package com.phoenix.yiqikang.controller.response;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@ApiModel("UserResponse 用户个人信息")
 public class UserResponse {
     /**
      * {@link com.phoenix.yiqikang.entity.User}

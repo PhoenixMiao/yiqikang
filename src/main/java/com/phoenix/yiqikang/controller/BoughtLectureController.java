@@ -36,7 +36,7 @@ public class BoughtLectureController {
     @PostMapping("/add")
     @ApiOperation(value = "用户购买讲座",response = Long.class)
     @ApiImplicitParam(name = "lectureId",value = "id",required = true,paramType= "query")
-    public Long getBoughtLecture(@NotNull @RequestParam("lectureId") Long lectureId){
+    public Object getBoughtLecture(@NotNull @RequestParam("lectureId") Long lectureId){
         return boughtLectureService.addBoughtLecture(sessionUtils.getUserId(),lectureId);
     }
 
@@ -46,12 +46,11 @@ public class BoughtLectureController {
     @ApiImplicitParams({
             @ApiImplicitParam(name="PageSize",value="每页显示数量 (不小于0)",required = true,paramType = "query",dataType = "Integer"),
             @ApiImplicitParam(name="PageNum",value="页数（不小于0）",required = true,paramType = "query",dataType = "Integer")})
-    public Page getBoughtLectureById(@NotNull @RequestParam("pageSize")Integer pageSize,
+    public Object getBoughtLectureById(@NotNull @RequestParam("pageSize")Integer pageSize,
                                   @NotNull @RequestParam("pageNum")Integer pageNum)
     {
         return boughtLectureService.getBoughtLecture(pageSize,pageNum,sessionUtils.getUserId());
-
     }
 
-    }
+}
 

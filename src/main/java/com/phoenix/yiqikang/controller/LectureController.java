@@ -36,7 +36,7 @@ public class LectureController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "pageSize",value = "每页显示数量 (不小于0)",required = true,paramType = "query",dataType = "Integer"),
             @ApiImplicitParam(name = "pageNum", value = "页数 (不小于0)", required = true, paramType = "query", dataType = "Integer")})
-    public Page<BriefLecture> getAllLessons(@NotNull @RequestParam("pageNum")Integer pageNum,
+    public Object getAllLessons(@NotNull @RequestParam("pageNum")Integer pageNum,
                                             @NotNull @RequestParam("pageSize")Integer pageSize){
         return lectureService.getBriefLectureList(pageNum,pageSize);
     }
@@ -47,10 +47,10 @@ public class LectureController {
             @ApiImplicitParam(name = "pageSize",value = "每页显示数量 (不小于0)",required = true,paramType = "query",dataType = "Integer"),
             @ApiImplicitParam(name = "pageNum", value = "页数 (不小于0)", required = true, paramType = "query", dataType = "Integer"),
             @ApiImplicitParam(name = "status",value = "要查询的讲座当前状态 0未开始 1已结束",required = true,paramType = "query",dataType = "Integer")})
-    public Result getBriefLecureListByStatus(@NotNull @RequestParam("pageSize")Integer pageSize,
+    public Object getBriefLectureListByStatus(@NotNull @RequestParam("pageSize")Integer pageSize,
                                                  @NotNull @RequestParam("pageNum")Integer pageNum,
                                                  @NotNull @RequestParam("status")Integer status){
-        return Result.success(lectureService.getLectureByStatus(pageNum,pageSize,status));
+        return lectureService.getLectureByStatus(pageNum,pageSize,status);
     }
 
 
@@ -58,8 +58,9 @@ public class LectureController {
     @GetMapping("/detail")
     @ApiOperation("根据讲座Id获取讲座详情")
     @ApiImplicitParam(name = "id", value = "讲座id", required = true, paramType = "query", dataType = "Long")
-    public Result detail(@NotNull@RequestParam("id")Long id) {
-        return Result.success("获取成功", lectureService.getLectureDetail(id));
+    public Object detail(@NotNull@RequestParam("id")Long id) {
+        return lectureService.getLectureDetail(id);
     }
+
 
 }

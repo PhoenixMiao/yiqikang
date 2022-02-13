@@ -19,7 +19,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 @ApiModel("BoughtLesson 用户购买课程信息")
-public class BoughtLesson implements Serializable {
+public class BoughtLesson{
     @Id
     @ApiModelProperty("id")
     private Long id;

@@ -1,10 +1,10 @@
 package com.phoenix.yiqikang.service;
 
 import com.phoenix.yiqikang.common.Page;
-import com.phoenix.yiqikang.dto.BriefFavorities;
 import com.phoenix.yiqikang.dto.BriefLesson;
 import com.phoenix.yiqikang.entity.Lesson;
-import com.phoenix.yiqikang.entity.RecommendLesson;
+
+import java.util.List;
 
 public interface LessonService {
     Page<BriefLesson> getBriefLessonPage(int PageSize,int PageNum);
@@ -15,4 +15,5 @@ public interface LessonService {
 
     Lesson getLessonDetail(Long id);
 
+    List<BriefLesson> getRecommend(Long userId);
 }

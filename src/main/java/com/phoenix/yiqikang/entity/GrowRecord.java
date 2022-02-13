@@ -19,7 +19,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 @ApiModel("GrowRecord成长记录")
-public class GrowRecord implements Serializable{
+public class GrowRecord{
     @Id
     @ApiModelProperty("id")
     private Long id;
@@ -30,6 +30,9 @@ public class GrowRecord implements Serializable{
     @ApiModelProperty("用户id")
     private Long userId;
 
-    @ApiModelProperty("回答情况")
-    private String answer;
+    @ApiModelProperty("课程id")
+    private Long lectureId;
+
+    @ApiModelProperty("回答情况（总分值）")
+    private Integer scores;
 }

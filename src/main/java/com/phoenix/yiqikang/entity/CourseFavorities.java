@@ -20,7 +20,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 @ApiModel("收藏")
-public class CourseFavorities implements Serializable{
+public class CourseFavorities{
     @Id
     @ApiModelProperty("id")
     private Long id;

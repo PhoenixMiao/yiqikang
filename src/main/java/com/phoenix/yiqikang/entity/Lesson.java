@@ -39,11 +39,8 @@ public class Lesson {
     private Double price;
 
     @ApiModelProperty("视频")
-    private String vedio;
+    private String video;
 
     @ApiModelProperty("ppt")
     private String ppt;
-
-    @ApiModelProperty("问卷id")
-    private Long questionnaireId;
 }

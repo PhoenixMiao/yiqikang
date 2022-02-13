@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 public interface SubscribeMapper {
-    @Insert("INSERT INTO subscribe VALUES (null,#{userId},#{status},#{startTime),#{endTime}")
+    @Insert("INSERT INTO subscribe VALUES (null,#{userId},#{status},#{startTime},#{endTime}")
     int insertSubscribe(@Param("userId") Long userId,@Param("status") Boolean status,@Param("startTime") String startTime,@Param("endTime") String endTime);
 
     @Select("SELECT endTime,status FROM subscribe WHERE userId=#{userId}")
@@ -20,7 +20,7 @@ public interface SubscribeMapper {
     Boolean getEndTimeByUserId(@Param("userId")Long userId);
 
     @Update("UPDATE subscribe SET status=#{status},endTime=#{endTime} WHERE userId=#{userId}")
-    void updateSubscribe(@Param("status")Boolean status,@Param("userId")Long userId);
+    void updateSubscribe(@Param("status")Boolean status,@Param("userId")Long userId,@Param("endTime")String endTime);
 
 
 

@@ -21,6 +21,8 @@ public class BriefLesson implements Serializable {
      * {@link com.phoenix.yiqikang.entity.Lesson}
      */
 
+    @ApiModelProperty("id")
+    private Long id;
 
     @ApiModelProperty("名称")
     private String name;
@@ -33,6 +35,4 @@ public class BriefLesson implements Serializable {
 
     @ApiModelProperty("三级路径")
     private String thirdPath;
-
-
 }

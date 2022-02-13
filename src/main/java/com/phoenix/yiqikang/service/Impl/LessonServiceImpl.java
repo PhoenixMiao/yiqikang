@@ -1,20 +1,21 @@
 package com.phoenix.yiqikang.service.Impl;
 
-import com.phoenix.yiqikang.common.CommonErrorCode;
-import com.phoenix.yiqikang.common.CommonException;
 import com.phoenix.yiqikang.common.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.phoenix.yiqikang.dto.BriefLesson;
 import com.phoenix.yiqikang.entity.Lesson;
-import com.phoenix.yiqikang.entity.RecommendLesson;
+import com.phoenix.yiqikang.entity.User;
 import com.phoenix.yiqikang.mapper.LessonMapper;
 import com.phoenix.yiqikang.mapper.RecommendLessonMapper;
+import com.phoenix.yiqikang.mapper.UserMapper;
 import com.phoenix.yiqikang.service.LessonService;
 import com.phoenix.yiqikang.util.SessionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,7 +24,10 @@ public class LessonServiceImpl implements LessonService {
     private LessonMapper lessonMapper;
 
     @Autowired
-    private SessionUtils sessionUtils;
+    private UserMapper userMapper;
+
+    @Autowired
+    private RecommendLessonMapper recommendLessonMapper;
 
 
     @Override
@@ -43,8 +47,17 @@ public class LessonServiceImpl implements LessonService {
     }
 
     @Override
+    public List<BriefLesson> getRecommend(Long userId) {
+        User user = userMapper.selectByPrimaryKey(userId);
+        List<Long> longs = recommendLessonMapper.getNewestRecommend(userId,user.getEstimateTimes());
+        ArrayList<BriefLesson> briefLessonArrayList = new ArrayList<>();
+        for(Long ele:longs) briefLessonArrayList.add(lessonMapper.getLessonById(ele));
+        return briefLessonArrayList;
+    }
+
+    @Override
     public Page<BriefLesson> getBriefLessonPage(int pageSize,int pageNum){
-        PageHelper.startPage(pageNum,pageSize);
+        PageHelper.startPage(pageNum,pageSize,"");
         List<BriefLesson> briefLessonList = lessonMapper.getBriefLesson();
         return new Page<>(new PageInfo<>(briefLessonList));
 
