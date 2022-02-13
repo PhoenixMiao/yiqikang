@@ -19,14 +19,20 @@ public class User implements Serializable {
     @ApiModelProperty("用户id")
     private Long id;
 
+    @ApiModelProperty("会话id")
     private String sessionId;
+
+    @ApiModelProperty("用户唯一标识")
     private String openId;
-    private String createTime;
+
+    @ApiModelProperty("unionid")
     private String unionId;
+
+    @ApiModelProperty("会话密钥")
     private String sessionKey;
 
-    @ApiModelProperty("真实姓名")
-    private String realname;
+    @ApiModelProperty("创建时间")
+    private String createTime;
 
     @ApiModelProperty("用户名")
     private String username;
@@ -34,18 +40,15 @@ public class User implements Serializable {
     @ApiModelProperty("密码")
     private String password;
 
-    @ApiModelProperty("年级")
-    private String grade;
-
-    @ApiModelProperty("专业")
-    private String major;
-
-    @ApiModelProperty("擅长领域")
-    private String specialize;
-
     @ApiModelProperty("联系方式")
-    private String contactInformation;
+    private String telephone;
 
-    @ApiModelProperty("个人简介")
-    private String introduction;
+    @ApiModelProperty("电子邮件")
+    private String email;
+
+    @ApiModelProperty("头像")
+    private String portrait;
+
+    @ApiModelProperty("评估次数")
+    private Integer estimateTimes;
 }

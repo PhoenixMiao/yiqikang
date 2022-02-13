@@ -2,7 +2,10 @@ package com.phoenix.yiqikang.service.Impl;
 
 import com.phoenix.yiqikang.common.CommonConstants;
 import com.phoenix.yiqikang.common.CommonErrorCode;
+import com.phoenix.yiqikang.common.Result;
 import com.phoenix.yiqikang.config.YmlConfig;
+import com.phoenix.yiqikang.controller.request.UpdateUserByIdRequest;
+import com.phoenix.yiqikang.controller.response.UserResponse;
 import com.phoenix.yiqikang.dto.SessionData;
 import com.phoenix.yiqikang.dto.WxSession;
 import com.phoenix.yiqikang.entity.User;
@@ -64,13 +67,23 @@ public class UserServiceImpl implements UserService {
                 .unionId(wxSession.getUnionId())
                 .sessionKey(wxSession.getSessionKey())
                 .sessionId(sessionId)
+                .estimateTimes(0)
                 .build();
 
         userMapper.insert(user);
-
+       // Long userId = userMapper.newUser(user);
+//跨平台要用这个
         return new SessionData(user);
     }
 
+    public UserResponse getUserById(Long id) {return userMapper.getUserById(id);}
+
+    @Override
+    public void updateUserById(UpdateUserByIdRequest updateUserByIdRequest, Long id) {
+        if(updateUserByIdRequest.getEmail()!=null) userMapper.updateEmail((String) updateUserByIdRequest.getEmail(),id);
+        if(updateUserByIdRequest.getTelephone()!=null) userMapper.updateTelephone((String) updateUserByIdRequest.getTelephone(),id);
+        if(updateUserByIdRequest.getPortrait()!=null) userMapper.updateEmail((String) updateUserByIdRequest.getPortrait(),id);
+    }
 
     private WxSession getWxSessionByCode(String code){
         Map<String, String> requestUrlParam = new HashMap<>();

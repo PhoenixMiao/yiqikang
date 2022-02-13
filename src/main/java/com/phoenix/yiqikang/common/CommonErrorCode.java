@@ -44,7 +44,7 @@ public enum CommonErrorCode {
     INVALID_SESSION(2006,"会话丢失","登录已失效，请重新登录"),
     SCHOOL_UNAUTHORIZED(2007,"未通过学校认证","尚未进行校园认证，请先认证"),
     INVALID_PICTURE_TYPE(2008,"无效的图片类型（必须是goods或advice）","图片上传出错，请重试"),
-
+    NOT_ESTIMATE_YET(2009,"尚未完成评估，无推荐课程","先去进行评估"),
 
 
 
