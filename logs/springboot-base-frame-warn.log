@@ -956,3 +956,9 @@ Caused by: java.lang.IllegalStateException: javax.websocket.server.ServerContain
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1799)
 	... 80 common frames omitted
+2022-02-13 23:04:47.760 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.phoenix.yiqikang.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-02-13 23:04:47.761 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.phoenix.yiqikang]' package. Please check your configuration.
+2022-02-13 23:05:39.724 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.phoenix.yiqikang.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-02-13 23:05:39.725 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.phoenix.yiqikang]' package. Please check your configuration.
+2022-02-13 23:06:25.428 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.phoenix.yiqikang.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-02-13 23:06:25.429 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.phoenix.yiqikang]' package. Please check your configuration.
