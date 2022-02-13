@@ -29,4 +29,7 @@ public class BoughtLesson{
 
     @ApiModelProperty("courseId")
     private Long courseId;
+
+    @ApiModelProperty("createTime")
+    private Long createTime;
 }

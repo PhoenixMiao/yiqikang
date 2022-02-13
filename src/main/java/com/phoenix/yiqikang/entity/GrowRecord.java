@@ -34,5 +34,5 @@ public class GrowRecord{
     private Long lectureId;
 
     @ApiModelProperty("回答情况（总分值）")
-    private Integer scores;
+    private Integer score;
 }
