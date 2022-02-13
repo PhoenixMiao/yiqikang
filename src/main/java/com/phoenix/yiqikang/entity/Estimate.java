@@ -19,7 +19,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 @ApiModel("Estimate评估记录")
-public class Estimate implements Serializable{
+public class Estimate{
     @Id
     @ApiModelProperty("id")
     private Long id;

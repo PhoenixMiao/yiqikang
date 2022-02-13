@@ -1,8 +1,18 @@
 package com.phoenix.yiqikang.dto;
 
 import com.phoenix.yiqikang.entity.CourseFavorities;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@ApiModel("BriefFavorities 收藏列表")
 public class BriefFavorities {
     /**
      * {@link com.phoenix.yiqikang.entity.Lesson}

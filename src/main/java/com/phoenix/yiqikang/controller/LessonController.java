@@ -49,19 +49,6 @@ public class LessonController {
         return Result.success("获取成功", lessonService.getLessonDetail(id));
     }
 
-    //todo-Alba
-    @Auth
-    @GetMapping("/recommend")
-    @ApiOperation("查看推荐课程")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "pageSize",value = "每页显示数量 (不小于0)",required = true,paramType = "query",dataType = "Integer"),
-            @ApiImplicitParam(name = "pageNum", value = "页数 (不小于0)", required = true, paramType = "query", dataType = "Integer")})
-    public Page<RecommendLesson> getRecommendLessons(@NotNull @RequestParam("pageSize")Integer pageSize,
-                                                     @NotNull @RequestParam("pageNum")Integer pageNum){
-        return null;
-    }
-
-
     @Auth
     @GetMapping("/search")
     @ApiOperation("根据课程名称关键字进行模糊搜索")
@@ -78,6 +65,14 @@ public class LessonController {
 //        return Result.success("搜索成功！",userOrderService.searchUserOrder(pageNum,pageSize,id,username,sendOrReceive));
     //todo-Alba
         //j2ee搬过来的，首页对课程名称进行模糊搜索
+    }
+
+
+
+    @GetMapping("/recommend")
+    @ApiOperation("获取最近的推荐课程")
+    public Object getRecommend(){
+        return lessonService.getRecommend(sessionUtils.getUserId());
     }
 
 

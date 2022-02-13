@@ -17,8 +17,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ApiModel("选项")
-public class Option {
+@ApiModel("问题及选项")
+public class Question {
     @Id
     @ApiModelProperty("id")
     private Long id;
@@ -26,11 +26,11 @@ public class Option {
     @ApiModelProperty("课程id")
     private Long lectureId;
 
-    @ApiModelProperty("问卷id")
-    private Long questionaireId;
-
     @ApiModelProperty("问题id")
     private Long questionId;
+
+    @ApiModelProperty("问题内容")
+    private String questionValue;
 
     @ApiModelProperty("选项1")
     private String v1;

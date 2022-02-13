@@ -20,7 +20,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 @ApiModel("Lecture 讲座")
-public class Lecture implements Serializable{
+public class Lecture{
 
     @Id
     @ApiModelProperty("id")
@@ -42,13 +42,13 @@ public class Lecture implements Serializable{
     private String liveLink;
 
     @ApiModelProperty("录播视频")
-    private String vedio;
+    private String video;
 
     @ApiModelProperty("直播价格")
     private Double livePrice;
 
     @ApiModelProperty("录播价格")
-    private Double vedioPrice;
+    private Double videoPrice;
 
     @ApiModelProperty("封面")
     private String picture;

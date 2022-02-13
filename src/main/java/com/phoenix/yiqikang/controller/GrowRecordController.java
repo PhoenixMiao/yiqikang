@@ -2,32 +2,49 @@ package com.phoenix.yiqikang.controller;
 
 import com.phoenix.yiqikang.annotation.Auth;
 import com.phoenix.yiqikang.common.Result;
+import com.phoenix.yiqikang.service.GrowRecordService;
+import com.phoenix.yiqikang.util.SessionUtils;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotNull;
+
+@RestController
+@Api("成长记录相关接口")
+@RequestMapping("/growRecord")
+@Validated
 public class GrowRecordController {
 
-    @Auth
-    @GetMapping("/all")
-    @ApiImplicitParam(name = "name",value = "根据课程名称返回该课程对应问题",required = true,paramType = "query",dataType = "String")
-    public Result getGrowRecordQuestionByLessonName(@Param("name")String name){
-        return null;
-        //todo-Alba
-    }
+    @Autowired
+    private GrowRecordService growRecordService;
+
+    @Autowired
+    private SessionUtils sessionUtils;
 
     @Auth
     @PostMapping("/submit")
-    public Result submitOwnAnswer(){
-        return null;
-        //todo-Alba
-        //提交成长记录结果,更新推荐课程，返回笼统建议，三个类别的分数
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "scores",value = "总分数",required = true,paramType = "query"),
+            @ApiImplicitParam(name = "lectureId",value = "课程id",required = true,paramType = "query")
+    })
+    public Object submitOwnAnswer(@NotNull @RequestParam("scores")Integer scores,
+                                       @NotNull@RequestParam("lectureId")Long lectureId){
+        return growRecordService.submitQuestionnaire(scores,lectureId,sessionUtils.getUserId());
     }
 
 
-
-
+    @Auth
+    @GetMapping("/list")
+    @ApiImplicitParam(name = "lectureId",value = "课程id",required = true,paramType = "query")
+    public Object getGrowRecordList(@NotNull @RequestParam("lectureId")Long lectureId){
+        return growRecordService.getGrowRecordList(sessionUtils.getUserId(),lectureId);
+    }
 
 
 

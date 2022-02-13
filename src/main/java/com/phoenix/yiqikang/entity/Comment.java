@@ -21,7 +21,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 @ApiModel("Comment评论")
-public class Comment implements Serializable{
+public class Comment{
     @Id
     @ApiModelProperty("id")
     private Long id;

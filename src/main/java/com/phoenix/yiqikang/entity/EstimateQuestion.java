@@ -13,11 +13,11 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ApiModel("EstimateQuestion评估问题")
+@ApiModel("EstimateQuestion 评估问题")
 public class EstimateQuestion {
     @Id
-    @ApiModelProperty("问题id/顺序")
-    private Long questionId;
+    @ApiModelProperty("问题id")
+    private Long id;
 
     @ApiModelProperty("一级路径")
     private String firstPath;
@@ -31,7 +31,7 @@ public class EstimateQuestion {
     @ApiModelProperty("解决方案")
     private String resolution;
 
-    @ApiModelProperty("课程id")
-    private Long lessonId;
+    @ApiModelProperty("课程名称")
+    private String lessonName;
 
 }

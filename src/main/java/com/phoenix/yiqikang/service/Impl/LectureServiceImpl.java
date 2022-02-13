@@ -8,9 +8,11 @@ import com.phoenix.yiqikang.entity.Lecture;
 import com.phoenix.yiqikang.mapper.LectureMapper;
 import com.phoenix.yiqikang.service.LectureService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class LectureServiceImpl implements LectureService {
 
     @Autowired

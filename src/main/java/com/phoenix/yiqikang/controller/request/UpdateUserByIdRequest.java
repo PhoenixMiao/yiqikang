@@ -1,8 +1,18 @@
 package com.phoenix.yiqikang.controller.request;
 
 import com.phoenix.yiqikang.entity.User;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@ApiModel("UpdateUserByIdRequest 修改用户个人信息")
 public class UpdateUserByIdRequest {
 
     @ApiModelProperty("用户名")
@@ -19,21 +29,4 @@ public class UpdateUserByIdRequest {
 
     @ApiModelProperty("头像")
     private String portrait;
-
-    public Object getUsername() {
-        return username;
-    }
-
-    public Object getTelePhone() {
-        return telephone;
-    }
-
-    public Object getPortrait() {
-        return portrait;
-    }
-
-    public Object getEmail() {
-        return email;
-    }
-
 }

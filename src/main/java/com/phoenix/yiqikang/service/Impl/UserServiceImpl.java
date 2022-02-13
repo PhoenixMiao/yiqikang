@@ -67,6 +67,7 @@ public class UserServiceImpl implements UserService {
                 .unionId(wxSession.getUnionId())
                 .sessionKey(wxSession.getSessionKey())
                 .sessionId(sessionId)
+                .estimateTimes(0)
                 .build();
 
         userMapper.insert(user);
@@ -80,7 +81,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateUserById(UpdateUserByIdRequest updateUserByIdRequest, Long id) {
         if(updateUserByIdRequest.getEmail()!=null) userMapper.updateEmail((String) updateUserByIdRequest.getEmail(),id);
-        if(updateUserByIdRequest.getTelePhone()!=null) userMapper.updateTelephone((String) updateUserByIdRequest.getTelePhone(),id);
+        if(updateUserByIdRequest.getTelephone()!=null) userMapper.updateTelephone((String) updateUserByIdRequest.getTelephone(),id);
         if(updateUserByIdRequest.getPortrait()!=null) userMapper.updateEmail((String) updateUserByIdRequest.getPortrait(),id);
     }
 

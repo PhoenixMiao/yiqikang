@@ -6,18 +6,22 @@ import com.phoenix.yiqikang.controller.response.UserResponse;
 import com.phoenix.yiqikang.dto.SessionData;
 import com.phoenix.yiqikang.service.UserService;
 import com.phoenix.yiqikang.util.SessionUtils;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+
+@RestController
+@Api("用户相关接口")
+@RequestMapping("/user")
+@Validated
 public class UserController {
 
     @Autowired

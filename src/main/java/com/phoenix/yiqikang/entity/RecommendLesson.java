@@ -1,20 +1,34 @@
 package com.phoenix.yiqikang.entity;
 
-import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
-public class RecommendLesson {
+import java.io.Serializable;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@ApiModel("推荐课程")
+public class RecommendLesson implements Serializable {
     @Id
-    @ApiModelProperty
+    @ApiModelProperty("id")
     private Long id;
 
-    @ApiModelProperty
+    @ApiModelProperty("用户id")
     private Long userId;
 
-    @ApiModelProperty
-    private Long lessonId;
+    @ApiModelProperty("评估记录id")
+    private Long estimateId;
 
-    @ApiModelProperty
-    private String generateTime;
+    @ApiModelProperty("课程id")
+    private Long lectureId;
+
+    @ApiModelProperty("版本")
+    private Integer version;
 }
