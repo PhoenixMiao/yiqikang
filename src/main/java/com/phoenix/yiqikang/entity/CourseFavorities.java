@@ -2,7 +2,6 @@ package com.phoenix.yiqikang.entity;
 
 import cn.hutool.core.date.DateTime;
 import com.fasterxml.jackson.core.SerializableString;
-import com.sun.jdi.LongType;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
