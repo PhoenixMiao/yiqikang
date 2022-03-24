@@ -43,7 +43,7 @@ public class EstimateController {
     @Auth
     @PostMapping("/submit")
     @ApiOperation(value = "提交评估",response = EstimateResponse.class)
-    @ApiImplicitParam(name = "answer",value = "回答情况（二进制流1010101000,58位）",required = true,paramType= "query")
+    @ApiImplicitParam(name = "answer",value = "回答情况（二进制流1010101000,60位）",required = true,paramType= "query")
     public Object submit(@NotNull @RequestParam("answer")String answer){
         return estimateService.submitEstimate(sessionUtils.getUserId(),answer);
     }
