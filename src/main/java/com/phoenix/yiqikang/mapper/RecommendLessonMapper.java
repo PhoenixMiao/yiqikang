@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface RecommendLessonMapper extends MyMapper<RecommendLesson> {
 
-    @Select("SELECT lessonId from RecommendLesson WHERE userId = #{userId} AND version=#{version}")
-    List<Long> getNewestRecommend(@Param("userId")Long userId, @Param("version")Integer version);
+    @Select("SELECT lessonId from RecommendLesson WHERE user_id = #{user_id} AND version=#{version}")
+    List<Long> getNewestRecommend(@Param("user_id")Long userId, @Param("version")Integer version);
 
 }

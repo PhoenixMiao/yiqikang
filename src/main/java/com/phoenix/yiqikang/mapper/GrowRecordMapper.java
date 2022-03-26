@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 public interface GrowRecordMapper extends MyMapper<GrowRecord> {
-    @Select("SELECT * FROM growRecord WHERE userId=#{userId} AND lectureId=#{lectureId}")
-    List<GrowRecord> getGrowRecordList(@Param("userId")Long userId,@Param("lectureId")Long lectureId);
+    @Select("SELECT * FROM grow_record WHERE user_id=#{user_id} AND lecture_id=#{lecture_id}")
+    List<GrowRecord> getGrowRecordList(@Param("user_id")Long userId,@Param("lecture_id")Long lectureId);
 
 }

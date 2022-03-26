@@ -6,10 +6,10 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 public interface BoughtLectureMapper {
-    @Insert("INSERT INTO boughtLecture(userId,lectureId) VALUES (#{userId},#{lectureId});")
-    Long addBoughtLecture(@Param("userId")Long userId, @Param("lectureId")Long lectureId);
+    @Insert("INSERT INTO bought_lecture(user_id,lecture_id) VALUES (#{user_id},#{lecture_id});")
+    Long addBoughtLecture(@Param("user_id")Long userId, @Param("lecture_id")Long lectureId);
 
-    @Select("SELECT lectureId FROM boughtLecture WHERE userId=#{userId}")
-    BriefLecture getUserBoughtLectureId(@Param("userId")Long userId);
+    @Select("SELECT lecture_id FROM bought_lecture WHERE user_id=#{user_id}")
+    BriefLecture getUserBoughtLectureId(@Param("user_id")Long userId);
 
 }

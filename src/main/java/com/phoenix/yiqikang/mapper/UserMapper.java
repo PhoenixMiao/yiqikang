@@ -31,8 +31,8 @@ public interface UserMapper extends MyMapper<User> {
     @Update("UPDATE user SET portrait=#{portrait} WHERE id=#{id}")
     void updatePortrait(@Param("portrait")String portrait,@Param("id")Long id);
 
-    @Update("UPDATE user SET estimateTimes=#{estimateTimes} WHERE id=#{id}")
-    void estimate(@Param("estimateTimes")Integer estimateTimes,@Param("id")Long id);
+    @Update("UPDATE user SET estimate_times=#{estimate_times} WHERE id=#{id}")
+    void estimate(@Param("estimate_times")Integer estimateTimes,@Param("id")Long id);
 
 
     //void updateUserById(Object username, Object telePhone, Object portrait, Object email, Long id);

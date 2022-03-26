@@ -8,6 +8,6 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 public interface QuestionMapper extends MyMapper<Question> {
-    @Select("SELECT * FROM question WHERE lectureId=#{lectureId}")
-    List<Question> getQuestionListByLectureId(@Param("lectureId")Long lectureId);
+    @Select("SELECT * FROM question WHERE lecture_id=#{lecture_id}")
+    List<Question> getQuestionListByLectureId(@Param("lecture_id")Long lectureId);
 }

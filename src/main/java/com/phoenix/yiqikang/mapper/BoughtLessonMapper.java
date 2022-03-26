@@ -8,10 +8,10 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 public interface BoughtLessonMapper {
-    @Insert("INSERT INTO boughtLesson(userId,lessonId) VALUES (#{userId},#{lessonId});")
-    Long addBoughtLesson(@Param("userId")Long userId, @Param("lessonId")Long lessonId);
+    @Insert("INSERT INTO bought_lesson(user_id,lesson_id) VALUES (#{user_id},#{lesson_id});")
+    Long addBoughtLesson(@Param("user_id")Long userId, @Param("lesson_id")Long lessonId);
 
-    @Select("SELECT * FROM boughtLesson WHERE userId=#{userId}")
+    @Select("SELECT * FROM bought_lesson WHERE user_id=#{user_id}")
     List<BoughtLesson> getUserBoughtLessonId(@Param("userId")Long userId);
 
 }

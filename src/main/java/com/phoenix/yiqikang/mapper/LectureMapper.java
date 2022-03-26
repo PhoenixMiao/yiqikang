@@ -11,13 +11,13 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 public interface LectureMapper extends MyMapper<Lecture> {
-    @Select("SELECT theme,startTime,lecturer,picture FROM lecture")
+    @Select("SELECT theme,start_time,lecturer,picture FROM lecture")
     Page<BriefLecture> getBriefLecture();
 
-    @Select("SELECT theme,startTime,lecturer,picture FROM lecture WHERE status=#{status}")
+    @Select("SELECT theme,start_time,lecturer,picture FROM lecture WHERE status=#{status}")
     List<BriefLecture> getNotStartLecture(@Param("status")Integer status);
 
-    @Select("SELECT theme,startTime,lecturer,picture FROM lecture WHERE status=#{status}")
+    @Select("SELECT theme,start_time,lecturer,picture FROM lecture WHERE status=#{status}")
     List<BriefLecture> getEndLecture(@Param("status")Integer status);
 
     @Select("SELECT * FROM lecture WHERE id=#{id}")
