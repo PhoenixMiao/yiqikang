@@ -12,6 +12,6 @@ public interface BoughtLessonMapper {
     Long addBoughtLesson(@Param("user_id")Long userId, @Param("lesson_id")Long lessonId);
 
     @Select("SELECT * FROM bought_lesson WHERE user_id=#{user_id}")
-    List<BoughtLesson> getUserBoughtLessonId(@Param("userId")Long userId);
+    List<BoughtLesson> getUserBoughtLessonId(@Param("user_id")Long userId);
 
 }

@@ -30,6 +30,8 @@ public class SessionData implements Serializable {
     private Long id;
     @ApiModelProperty("注册时间")
     private String createTime;
+    @ApiModelProperty("session")
+    private String sessionId;
     @ApiModelProperty("用户名")
     private String username;
     @ApiModelProperty("联系方式")
@@ -56,6 +58,7 @@ public class SessionData implements Serializable {
         username = user.getUsername();
         portrait = user.getPortrait();
         telephone = user.getTelephone();
+        sessionId = user.getSessionId();
         email = user.getEmail();
     }
 }
